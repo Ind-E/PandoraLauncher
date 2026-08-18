@@ -30,6 +30,9 @@ const DEV_BINDS: &[&str] = &[
 ];
 
 const SYSTEM_FILES_RO: &[&str] = &[
+    "/nix/store",
+    "/run/opengl-driver",
+    "/run/opengl-driver-32",
     "/bin",
     "/sbin",
     "/usr",
@@ -71,6 +74,7 @@ const SYSTEM_FILES_RO: &[&str] = &[
 
 static ALLOWED_ENV_VARS: Lazy<FxHashSet<&'static OsStr>> = Lazy::new(|| {
     [
+        "LD_LIBRARY_PATH",
         "GDMSESSION",
         "DESKTOP_SESSION",
         "PATH",
